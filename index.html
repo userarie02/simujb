@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="left-icons">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+        </div>
+      <!--  <div class="center-time">5:00 PM</div> -->
+    </div>
+    
+    <h1>Computer Simulator</h1>
+<div class="ipad-container">    
+     <!-- Container for CPU and Memory sections side-by-side -->
+     <div class="container">
+        <!-- CPU Section -->
+        <section id="cpu">
+            <h2 class="cpu-header">CPU Registers</h2>
+            <div class="cpu-registers">
+                <input type="text" id="R1" placeholder="R1" readonly>
+                <input type="text" id="R2" placeholder="R2" readonly>
+                <input type="text" id="R3" placeholder="R3" readonly>
+            </div>
+        </section>
+
+        <!-- Memory Section -->
+        <section id="memory">
+            <h2 class="mem-header">Memory</h2>
+            <div class="memory-grid">
+                <div><input type="number" id="A1" placeholder="A1"></div>
+                <div><input type="number" id="A2" placeholder="A2"></div>
+                <div><input type="number" id="A3" placeholder="A3"></div>
+                <div><input type="number" id="A4" placeholder="A4"></div>
+                <div><input type="number" id="A5" placeholder="A5"></div>
+                <div><input type="number" id="A6" placeholder="A6"></div>
+                <div><input type="number" id="A7" placeholder="A7"></div>
+                <div><input type="number" id="A8" placeholder="A8"></div>
+                <div><input type="number" id="A9" placeholder="A9"></div>
+                <div><input type="number" id="A10" placeholder="A10"></div>
+            </div>
+        </section>
+    </div>
+
+ <!-- Instruction Set Section -->
+<section id="instructions">
+    <h2 class="inst-header">Instruction Set</h2>
+    
+    <!-- Instruction Set Container -->
+    <div class="instruction-set">
+        
+        <!-- Flex Container for LOAD and STORE Instructions -->
+        <div class="instruction-container">
+            <!-- Load Instruction -->
+            <div class="instruction-box">
+                <h3>LOAD</h3>
+                <div class="instruction">
+                    <select id="loadFrom">
+                        <option value="" disabled selected>From Memory Address</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="A3">A3</option>
+                        <option value="A4">A4</option>
+                        <option value="A5">A5</option>
+                        <option value="A6">A6</option>
+                        <option value="A7">A7</option>
+                        <option value="A8">A8</option>
+                        <option value="A9">A9</option>
+                        <option value="A10">A10</option>
+                    </select>
+                    <select id="loadTo">
+                        <option value="" disabled selected>To Register</option> 
+                        <option value="R1">R1</option>
+                        <option value="R2">R2</option>
+                        <option value="R3">R3</option>
+                    </select>
+                    <button onclick="load()">Load</button>
+                </div>
+            </div>
+
+            <!-- Store Instruction -->
+            <div class="instruction-box">
+                <h3>STORE</h3>
+                <div class="instruction">
+                    <select id="storeFrom">
+                        <option value="" disabled selected>From Register</option> 
+                        <option value="R1">R1</option>
+                        <option value="R2">R2</option>
+                        <option value="R3">R3</option>
+                    </select>
+                    <select id="storeTo">
+                        <option value="" disabled selected>To Memory Address</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="A3">A3</option>
+                        <option value="A4">A4</option>
+                        <option value="A5">A5</option>
+                        <option value="A6">A6</option>
+                        <option value="A7">A7</option>
+                        <option value="A8">A8</option>
+                        <option value="A9">A9</option>
+                        <option value="A10">A10</option>
+                    </select>
+                    <button onclick="store()">Store</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</div>
+
+  <!-- Instruction Buttons Below Load and Store -->
+    <div class="instruction-buttons">
+        <button onclick="add()">ADD (R1 + R2 -> R3)</button>
+        <button onclick="sub()">SUB (R1 - R2 -> R3)</button>
+        <button onclick="mul()">MUL (R1 * R2 -> R3)</button>
+        <button onclick="div()">DIV (R1 / R2 -> R3)</button>
+    </div>
+</div>
+
+
+<!-- History Button -->
+<div class="history-toggle-container">
+    <button id="toggleHistoryButton" class="toggle-history-arrow" aria-label="Show History">&lt;</button>
+</div>
+
+<div id="history" class="history" style="display: none;">
+    <div class="history-container">
+        <div class="history-header">
+            <button id="closeHistoryButton" aria-label="Close History">&gt;</button> 
+            <h3>Operation History</h3>
+        </div>
+        <div class="history-content">
+            <table id="historyTable" class="history-table">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
